@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block page_title %}{% endblock %}</title>
+</head>
+
+{% block styles %}
+    <style>
+        .container {
+            width: 100%;
+            position: relative;
+        }
+        .main {
+            width: 65%;
+            margin: 10vw auto;
+            position: relative;
+        }
+        .main h1.title {
+            color: dodgerblue;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .box {
+            margin: 1vw;
+            padding: 1vw;
+            border: 1px cornflowerblue dotted;
+            border-radius: 1vw;
+        }
+    </style>
+{% endblock %}
+
+<body>
+<div class="container">
+    <div class="main">
+        <h1 class="title">{% block title %}{% endblock %}</h1>
+        {% block content %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>

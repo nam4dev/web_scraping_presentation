@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block page_title %}[Web-Scraping Presentation] Scrapped Pull Requests{% endblock %}
+
+{% block styles %}
+
+    {{ block.super }}
+
+<style>
+    .author a {
+        color: cornflowerblue;
+        text-decoration: none;
+    }
+    .author:nth-child(even) {
+        background-color: aliceblue;
+    }
+</style>
+
+{% endblock %}
+
+{% block title %}Scrapy Scrapped {{ authors|length }} Authors{% endblock %}
+
+{% block content %}
+
+    <a href="/"><</a>
+
+    {% for author in authors %}
+        <div class="box author">
+            <h2><a href="{{ author.page_link }}" target="_blank">{{ author.name }} ({{ author.pull_requests.all|length }})</a></h2>
+            <ul>
+                {% for pr in author.pull_requests.all %}
+                    <li>{{ pr.title }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block page_title %}[Web-Scraping Presentation] Scrapped Pull Requests{% endblock %}
+
+{% block styles %}
+
+    {{ block.super }}
+
+<style>
+    .label {
+        text-decoration: underline;
+    }
+    .pull-request a {
+        color: cornflowerblue;
+        text-decoration: none;
+    }
+    .pull-request:nth-child(odd) {
+        background-color: aliceblue;
+    }
+</style>
+
+{% endblock %}
+
+{% block title %}Scrapy Scrapped {{ pull_requests|length }} Pull Requests{% endblock %}
+
+{% block content %}
+
+    <a href="/"><</a>
+
+    {% for pr in pull_requests %}
+        <div class="box pull-request">
+            <h2><a href="{{ pr.link }}" target="_blank">[{{ pr.pid }}] - {{ pr.title }}</a></h2>
+            <p>{{ pr.status | safe }} - <a href="{{ pr.author.page_link }}" target="_blank">{{ pr.author }}</a></p>
+            <p>
+                <span class="label">Scrapped from URI</span>: <a href="{{ pr.scrapped_uri }}" target="_blank">{{ pr.scrapped_uri }}</a>
+            </p>
+        </div>
+    {% endfor %}
+
+{% endblock %}
