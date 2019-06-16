@@ -22,5 +22,6 @@ urlpatterns = [
     path('', views.home),
     path('pulls/', views.visualize_pull_requests),
     path('pulls/by/author/', views.visualize_pull_requests_by_author),
+    path('trigger/spider/github/', views.trigger_github_spider),
     path('admin/', admin.site.urls),
 ]

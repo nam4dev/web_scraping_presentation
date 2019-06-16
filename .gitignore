@@ -4,3 +4,9 @@ __pycache__/
 .spyderproject
 .idea/
 db.sqlite3
+twistd.pid
+build/
+*.egg-info/
+.~lock.*
+web_crawlers/deployment/
+*.log

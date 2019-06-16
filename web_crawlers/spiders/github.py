@@ -12,7 +12,7 @@ class GitHubSpider(scrapy.Spider):
 
         > scrapy runspider web_crawlers/spiders/github.py
     """
-    name = 'github_spider'
+    name = 'github'
     allowed_domains = ['github.com']
     start_urls = ['https://github.com/scrapy/scrapy/pulls']
 

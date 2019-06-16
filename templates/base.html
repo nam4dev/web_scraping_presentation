@@ -21,11 +21,27 @@
             text-align: center;
             text-decoration: underline;
         }
-        .box {
+        .box, .message {
             margin: 1vw;
             padding: 1vw;
-            border: 1px cornflowerblue dotted;
             border-radius: 1vw;
+            border: 1px cornflowerblue dotted;
+        }
+
+        .message {
+            color: whitesmoke;
+        }
+
+        .message.info {
+            background-color: dodgerblue;
+        }
+
+        .message.warning {
+            background-color: darkorange;
+        }
+
+        .message.error {
+            background-color: darkred;
         }
     </style>
 {% endblock %}
@@ -33,6 +49,11 @@
 <body>
 <div class="container">
     <div class="main">
+        {% block messages %}
+            {% for message in messages %}
+                <p class="message {{ message.type }}">{{ message.text }}</p>
+            {% endfor %}
+        {% endblock %}
         <h1 class="title">{% block title %}{% endblock %}</h1>
         {% block content %}{% endblock %}
     </div>
