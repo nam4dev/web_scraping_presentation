@@ -60,7 +60,10 @@ class GitHubSpider(scrapy.Spider):
 
         pr['title'] = data['title']
         pr['scrapped_uri'] = data['scrapped_uri']
-        pr['status'] = response.xpath('//*[@id="partial-discussion-header"]/div[2]/div[1]/span').get()
+
+        selectors = response.xpath('//*[@id="partial-discussion-header"]/div[2]/div[1]/span/text()')
+        if selectors and len(selectors) > 1:
+            pr['status'] = selectors[1].get().strip()
 
         author = AuthorItem()
 

@@ -16,7 +16,10 @@ class AuthorAdmin(admin.ModelAdmin):
 @admin.register(PullRequest)
 class PullRequestAdmin(admin.ModelAdmin):
     ordering = ('pid',)
-    list_filter = ('author',)
+    list_filter = (
+        ('status', admin.ChoicesFieldListFilter),
+        ('author', admin.RelatedFieldListFilter),
+    )
     search_fields = ('title',)
-    list_display = ('pid', 'title', 'author', 'link', 'scrapped_uri',)
-    # readonly_fields = ('pid', 'title', 'author', 'link', 'scrapped_uri',)
+    list_display = ('pid', 'status', 'title', 'author', 'link', 'scrapped_uri',)
+    # readonly_fields = ('pid', 'status', 'title', 'author', 'link', 'scrapped_uri',)
