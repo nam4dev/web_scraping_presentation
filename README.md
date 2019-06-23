@@ -16,11 +16,25 @@ Just clone the repository by typing in:
 git clone https://github.com/nam4dev/web_scraping_presentation.git
 ```
 
+###### Installation
+
+**Only for Windows Users**, download [PostgreSQL](https://get.enterprisedb.com/postgresql/postgresql-11.4-1-windows-x64.exe) & Install it.
+Open PgAdmin 
+**Change Django Settings accordingly**
+
+Install Python (3.7+)
+
 [Create a python virtualenv](https://virtualenv.pypa.io/en/stable/installation/) in which you will install the requirements,
+
+###### For Windows Users
+
+[Installing Scrapy on Windows](https://docs.scrapy.org/en/latest/intro/install.html#windows)
+
+###### For Linux Users
 
 ```bash
 cd ./web_scraping_presentation
-pip install requirements.txt
+pip install -r requirements.txt
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
@@ -59,16 +73,32 @@ cd web_scraping_presentation
 scrapyd > scrapyd.server.log
 ```
 
+##### Visualize scrapyd server interface
+
+Go to http://127.0.0.1:6800
+
 ##### Deploy web_crawlers project to scrapyd server
 
 **The scrapyd server shall run as prerequisite**
 
 One can deploy the `web_crawlers project` by simply typing in a shell,
 
+###### For Linux Users
+
 ```bash
 cd web_scraping_presentation
 scrapyd-deploy
 ```
+
+###### For Windows Users
+```bash
+cd web_scraping_presentation
+python setup.py bdist_egg
+```
+
+**Go on the root page http://127.0.0.1:8000, and click on the appropriated link: `Add the Github Spider Project to Scrapyd Server`**
+
+##### Trigger Github Spider
 
 **Go on the root page http://127.0.0.1:8000, and click on the appropriated link: `Trigger the Github Spider`**
 

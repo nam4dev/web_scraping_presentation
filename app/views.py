@@ -1,3 +1,4 @@
+import os
 import requests
 import scrapyd_api
 
@@ -90,3 +91,19 @@ def trigger_github_spider(request):
         )
 
     return render(request, 'index.html', {'messages': messages})
+
+
+def add_web_crawlers_project_to_scrapyd_server(request):
+    project = 'web_crawlers'
+    egg_filename = os.path.join(
+        os.path.dirname(os.path.dirname(__file__)),
+        'dist', 'web_crawlers-0.0.1-py3.7.egg'
+    )
+    with open(egg_filename, 'rb') as egg:
+        spider_count = scrapyd.add_version(project, '0.0.1', egg)
+    return render(request, 'index.html', {'messages': [
+        {
+            'type': 'info',
+            'text': '{} Spider(s) added from Project {}'.format(spider_count, project)
+        }
+    ]})

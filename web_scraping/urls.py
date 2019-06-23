@@ -13,8 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path
+from django.contrib import admin
 
 from app import views
 
@@ -23,5 +23,6 @@ urlpatterns = [
     path('pulls/', views.visualize_pull_requests),
     path('pulls/by/author/', views.visualize_pull_requests_by_author),
     path('trigger/spider/github/', views.trigger_github_spider),
+    path('add/project/to/scrapyd/', views.add_web_crawlers_project_to_scrapyd_server),
     path('admin/', admin.site.urls),
 ]
