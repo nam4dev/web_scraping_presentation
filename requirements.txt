@@ -1,5 +1,5 @@
 django==2.2.4
-scrapy==1.6.0
+scrapy==2.6.2
 scrapyd==1.2.0
 python-scrapyd-api==2.1.2
 requests==2.22.0
