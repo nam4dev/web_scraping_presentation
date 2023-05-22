@@ -2,6 +2,6 @@ django==2.2.4
 scrapy==1.6.0
 scrapyd==1.2.0
 python-scrapyd-api==2.1.2
-requests==2.22.0
+requests==2.31.0
 Twisted==18.9.0  # Need to be downgraded for scrapyd to work. See https://github.com/scrapy/scrapyd/issues/311
 psycopg2==2.8.3
